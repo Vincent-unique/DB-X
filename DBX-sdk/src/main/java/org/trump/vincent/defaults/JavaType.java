@@ -74,7 +74,9 @@ public class JavaType {
 
         DATE(JDBCType.DATE.getTypeName(),Types.DATE.getTypeName()),
         TIME(JDBCType.TIME.getTypeName(),Types.TIME.getTypeName()),
-        DATETIME("DATETIME",Types.TIME.getTypeName()),
+
+        DATETIME("DATETIME",Types.TIMESTAMP.getTypeName()),
+//        DATETIME("DATETIME",Types.TIME.getTypeName()),
         DATETIME2("DATETIME2",Types.TIME.getTypeName()),
         TIMESTAMP(JDBCType.TIMESTAMP.getTypeName(),Types.TIMESTAMP.getTypeName()),
 
