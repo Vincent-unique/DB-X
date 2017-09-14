@@ -73,7 +73,7 @@ public class Generator {
                 switch (typeName.toUpperCase()){
                     case "NVARCHAR2":
                     case "VARCHAR2":
-                    case "TIMESTAMP":
+//                    case "TIMESTAMP":
                         ddlClause.append("(").append(columnMeta.getLength()).append(")");
                         break;
                 }
