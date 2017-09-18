@@ -73,7 +73,7 @@ public class DataBase {
                     tables = databaseMetaData.getTables(this.catalog,Strings.isNullOrEmpty(this.getSchema())?"dbo":this.getSchema()
                             , null, new String[]{TableType.TABLE.getTypeName()});
                 }else {
-                    throw new RuntimeException("Warn: Sorry, Unsupported for " + this.driver);
+                    throw new UnsupportedOperationException("Warn: Sorry, Unsupported for " + this.driver);
                 }
                 if(tables!=null) {
                     for (; tables.next(); ) {
@@ -107,7 +107,7 @@ public class DataBase {
                 database.schema = connection.getSchema();
                 database.catalog = connection.getCatalog();
             }else {
-                throw new RuntimeException("Warn: Sorry, Unsupported for " + database.driver);
+                throw new UnsupportedOperationException("Warn: Sorry, Unsupported for " + database.driver);
             }
         }catch (SQLException sqle){
             logger.error("Build DataBase schema OR catalog occurs exception:",sqle);

@@ -15,7 +15,7 @@ public class MySQLType {
         }else if("oracle".equalsIgnoreCase(driverType)){
             return MySQLType.FromOracle.type(typeName);
         }else {
-            throw new RuntimeException("Warn: Sorry, None Mappings for " + driverType);
+            throw new UnsupportedOperationException("Warn: Sorry, None Mappings for " + driverType);
         }
     }
 

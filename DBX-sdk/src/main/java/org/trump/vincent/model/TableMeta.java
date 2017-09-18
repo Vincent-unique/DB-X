@@ -90,7 +90,7 @@ public class TableMeta {
             } else if ("oracle".equalsIgnoreCase(driverType)) {
                 pkSet = metaData.getPrimaryKeys(null,dbName,tableName);
             } else {
-                throw new RuntimeException("Warn: Sorry, Unsupported for " + driverType);
+                throw new UnsupportedOperationException("Warn: Sorry, Unsupported for " + driverType);
             }
             while (pkSet.next()){
                 String primaryKey = pkSet.getString(SQLConstants.COLUMN_COLUMNNAME);

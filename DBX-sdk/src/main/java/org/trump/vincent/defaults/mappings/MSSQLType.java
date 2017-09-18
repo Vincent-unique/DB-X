@@ -14,7 +14,7 @@ public class MSSQLType {
         }else if("mysql".equalsIgnoreCase(driverType)){
             return MSSQLType.FromMySQL.type(typeName);
         }else {
-            throw new RuntimeException("Warn: Sorry, None Mappings for " + driverType);
+            throw new UnsupportedOperationException("Warn: Sorry, None Mappings for " + driverType);
         }
     }
 

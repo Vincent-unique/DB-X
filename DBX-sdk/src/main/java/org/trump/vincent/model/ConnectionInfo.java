@@ -64,7 +64,7 @@ public class ConnectionInfo {
             return String.valueOf(urlStr);
 
         }else {
-            throw new RuntimeException("Warn: Sorry, Unsupported for "+driverType);
+            throw new UnsupportedOperationException("Warn: Sorry, Unsupported for "+driverType);
         }
     }
 

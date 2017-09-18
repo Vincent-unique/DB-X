@@ -15,7 +15,7 @@ public class MappingUtils {
         }else if("sqlserver".equalsIgnoreCase(targetDriverType)){
             return MSSQLType.from(fromType,sourceDriverType);
         }else {
-            throw new RuntimeException("Warn: Sorry, None Mappings' config for " + targetDriverType);
+            throw new UnsupportedOperationException("Warn: Sorry, None Mappings' config for " + targetDriverType);
         }
     }
 }
