@@ -18,7 +18,7 @@ public class ConnectionInfo {
 
     public Connection buildConnection(@NotNull String url, @NotNull Properties properties){
         try {
-        return DriverManager.getConnection(url,properties);
+            return DriverManager.getConnection(url,properties);
         }catch (SQLException sqle){
             logger.error("Build Connection occurs exception:",sqle);
         }
