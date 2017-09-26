@@ -123,13 +123,24 @@ public class JavaSQLUtils {
                statement.setString(paraIndex,value);
            }else if(javaType.equalsIgnoreCase(JavaType.Types.CLOB.getTypeName())){
                Clob value = resultSet.getClob(labelName);
-               statement.setClob(paraIndex,value);
+//               statement.setClob(paraIndex,value);
+               if(value == null){
+                   statement.setString(paraIndex,"");
+               }else {
+                   statement.setString(paraIndex, value.getSubString(1, (int) value.length()));
+               }
            }else if(javaType.equalsIgnoreCase(JavaType.Types.NCLOB.getTypeName())){
                NClob value = resultSet.getNClob(labelName);
-               statement.setNClob(paraIndex,value);
+//               statement.setNClob(paraIndex,value);
+               if(value == null){
+                   statement.setString(paraIndex,"");
+               }else {
+                   statement.setString(paraIndex, value.getSubString(1, (int) value.length()));
+               }
            }else if(javaType.equalsIgnoreCase(JavaType.Types.BLOB.getTypeName())){
                Blob value = resultSet.getBlob(labelName);
-               statement.setBlob(paraIndex,value);
+//               statement.setBlob(paraIndex,value);
+               statement.setBytes(paraIndex,value.getBytes(1,(int)(value.length())));
            }else if(javaType.equalsIgnoreCase(JavaType.Types.DATE.getTypeName())){
                Date value = resultSet.getDate(labelName);
                statement.setDate(paraIndex,value);
@@ -187,7 +198,7 @@ public class JavaSQLUtils {
             }else if(javaType.equalsIgnoreCase(JavaType.Types.STRING.getTypeName())){
                 statement.setString(paraIndex,"");
             }else if(javaType.equalsIgnoreCase(JavaType.Types.CLOB.getTypeName())){
-                statement.setClob(paraIndex, new Clob() {
+               /* statement.setClob(paraIndex, new Clob() {
                     @Override
                     public long length() throws SQLException {
                         return 0;
@@ -252,9 +263,10 @@ public class JavaSQLUtils {
                     public Reader getCharacterStream(long pos, long length) throws SQLException {
                         return null;
                     }
-                });
+                });*/
+               statement.setString(paraIndex,"");
             }else if(javaType.equalsIgnoreCase(JavaType.Types.NCLOB.getTypeName())){
-                statement.setNClob(paraIndex, new NClob() {
+                /*statement.setNClob(paraIndex, new NClob() {
                     @Override
                     public long length() throws SQLException {
                         return 0;
@@ -319,9 +331,10 @@ public class JavaSQLUtils {
                     public Reader getCharacterStream(long pos, long length) throws SQLException {
                         return null;
                     }
-                });
+                });*/
+                statement.setString(paraIndex,"");
             }else if(javaType.equalsIgnoreCase(JavaType.Types.BLOB.getTypeName())){
-                statement.setBlob(paraIndex, new Blob() {
+               /* statement.setBlob(paraIndex, new Blob() {
                     @Override
                     public long length() throws SQLException {
                         return 0;
@@ -376,7 +389,9 @@ public class JavaSQLUtils {
                     public InputStream getBinaryStream(long pos, long length) throws SQLException {
                         return null;
                     }
-                });
+                });*/
+                statement.setString(paraIndex,"");
+
             }else if(javaType.equalsIgnoreCase(JavaType.Types.DATE.getTypeName())){
                 statement.setDate(paraIndex,new Date(System.currentTimeMillis()));
             }else if(javaType.equalsIgnoreCase(JavaType.Types.TIME.getTypeName())){
