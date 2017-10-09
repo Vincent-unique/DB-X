@@ -125,7 +125,7 @@ public class JavaSQLUtils {
                Clob value = resultSet.getClob(labelName);
 //               statement.setClob(paraIndex,value);
                if(value == null){
-                   statement.setString(paraIndex,"");
+                   statement.setNull(paraIndex, Types.CLOB);
                }else {
                    statement.setString(paraIndex, value.getSubString(1, (int) value.length()));
                }
@@ -133,7 +133,7 @@ public class JavaSQLUtils {
                NClob value = resultSet.getNClob(labelName);
 //               statement.setNClob(paraIndex,value);
                if(value == null){
-                   statement.setString(paraIndex,"");
+                   statement.setNull(paraIndex,Types.NCLOB);
                }else {
                    statement.setString(paraIndex, value.getSubString(1, (int) value.length()));
                }
@@ -196,7 +196,7 @@ public class JavaSQLUtils {
             }else if(javaType.equalsIgnoreCase(JavaType.Types.BIGDECIMAL.getTypeName())){
                 statement.setBigDecimal(paraIndex,BigDecimal.ONE);
             }else if(javaType.equalsIgnoreCase(JavaType.Types.STRING.getTypeName())){
-                statement.setString(paraIndex,"");
+                statement.setString(paraIndex,"_");
             }else if(javaType.equalsIgnoreCase(JavaType.Types.CLOB.getTypeName())){
                /* statement.setClob(paraIndex, new Clob() {
                     @Override
@@ -264,7 +264,7 @@ public class JavaSQLUtils {
                         return null;
                     }
                 });*/
-               statement.setString(paraIndex,"");
+               statement.setString(paraIndex,"_");
             }else if(javaType.equalsIgnoreCase(JavaType.Types.NCLOB.getTypeName())){
                 /*statement.setNClob(paraIndex, new NClob() {
                     @Override
@@ -332,7 +332,7 @@ public class JavaSQLUtils {
                         return null;
                     }
                 });*/
-                statement.setString(paraIndex,"");
+                statement.setString(paraIndex,"_");
             }else if(javaType.equalsIgnoreCase(JavaType.Types.BLOB.getTypeName())){
                /* statement.setBlob(paraIndex, new Blob() {
                     @Override
@@ -390,7 +390,7 @@ public class JavaSQLUtils {
                         return null;
                     }
                 });*/
-                statement.setString(paraIndex,"");
+                statement.setString(paraIndex,"_");
 
             }else if(javaType.equalsIgnoreCase(JavaType.Types.DATE.getTypeName())){
                 statement.setDate(paraIndex,new Date(System.currentTimeMillis()));
