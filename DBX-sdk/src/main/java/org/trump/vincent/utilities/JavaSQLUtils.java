@@ -125,7 +125,7 @@ public class JavaSQLUtils {
                Clob value = resultSet.getClob(labelName);
 //               statement.setClob(paraIndex,value);
                if(value == null){
-                   statement.setString(paraIndex,"");
+                   statement.setNull(paraIndex, Types.CLOB);
                }else {
                    statement.setString(paraIndex, value.getSubString(1, (int) value.length()));
                }
@@ -133,7 +133,7 @@ public class JavaSQLUtils {
                NClob value = resultSet.getNClob(labelName);
 //               statement.setNClob(paraIndex,value);
                if(value == null){
-                   statement.setString(paraIndex,"");
+                   statement.setNull(paraIndex,Types.NCLOB);
                }else {
                    statement.setString(paraIndex, value.getSubString(1, (int) value.length()));
                }
