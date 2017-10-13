@@ -233,6 +233,33 @@ public class Generator {
     }
 
     /**
+     * Generate sql clause for truncate the table
+     * Notice : truncate statement perform that clear the table datas,.etc but only table structure is reserved.
+     * Cautiously, execured with specified prevelidge users
+     * @param tableName
+     * @return
+     */
+    public static String generateTRUNCATE(String tableName){
+        if(!Strings.isNullOrEmpty(tableName)){
+            StringBuilder dmlClause = new StringBuilder("TRUNCATE TABLE").append(tableName.toUpperCase());
+            return dmlClause.toString();
+        }
+        return null;
+    }
+
+    /**
+     * Generate sql clause for drop the table
+     * @param tableName
+     * @return
+     */
+    public static String generateDROP(String tableName){
+        if(!Strings.isNullOrEmpty(tableName)){
+            StringBuilder dmlClause = new StringBuilder("DROP TABLE").append(tableName.toUpperCase());
+            return dmlClause.toString();
+        }
+        return null;
+    }
+    /**
      * Generate uuid
      * @return
      */
