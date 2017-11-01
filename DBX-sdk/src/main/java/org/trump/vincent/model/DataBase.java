@@ -94,6 +94,10 @@ public class DataBase {
         return this;
     }
 
+    /**
+     * @see UnsupportedOperationException
+     * @param database
+     */
     public void buildSchemaAndCatalog(@NotNull DataBase database){
         Connection connection = database.connection;
         try {
