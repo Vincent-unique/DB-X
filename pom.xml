@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.trump.vincent</groupId>
-	<artifactId>DB-X</artifactId>
+	<artifactId>DBX</artifactId>
 	<version>0.0.1</version>
 	<modules>
-		<module>DBX-sdk</module>
+		<module>dbx-sdk</module>
 		<module>product/dbx-cre </module>
 	</modules>
 	<packaging>pom</packaging>
